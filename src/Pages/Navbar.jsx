@@ -13,7 +13,7 @@ const Navbar = () => {
                         <li><NavLink to={"/available"}>Available Foods</NavLink></li>
                         <li><NavLink to={"/addFood"}>Add Food</NavLink></li>
                         <li><NavLink to={"/manageFood"}>Manage My Foods</NavLink></li>
-                        <li><NavLink to={"/myFoodRequest"}>My Food Request</NavLink></li>
+                        <li><NavLink to={"/foodRequest"}>My Food Request</NavLink></li>
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl"><img src="/public/favicon.ico" /> Food Manager</a>
@@ -24,7 +24,7 @@ const Navbar = () => {
                     <li><NavLink to={"/available"}>Available Foods</NavLink></li>
                     <li><NavLink to={"/addFood"}>Add Food</NavLink></li>
                     <li><NavLink to={"/manageFood"}>Manage My Foods</NavLink></li>
-                    <li><NavLink to={"/myFoodRequest"}>My Food Request</NavLink></li>
+                    <li><NavLink to={"/foodRequest"}>My Food Request</NavLink></li>
                 </ul>
             </div>
             <div className="navbar-end">
