@@ -34,7 +34,7 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl"><img src="/favicon.ico" /> Food Manager</a>
+                <a className="btn btn-ghost normal-case text-xl"><img src="/favicon.ico" />Food Saver</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

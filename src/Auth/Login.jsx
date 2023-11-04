@@ -46,7 +46,7 @@ const Login = () => {
             <div className="hero-content flex-col gap-28 lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">Welcome back to Techy Store! Please enter your username or email and password to access your account. If you&apos;re a new user, you can easily create an account by clicking the &apos;Sign Up&apos; link. For added convenience, you can also log in using your social media accounts. If you&apos;ve forgotten your password, use the &apos;Forgot Password&apos; link to reset it. We&apos;re here to assist you every step of the way.</p>
+                    <p className="py-6">Welcome back to FoodSaver! Please log in to your account to access our food waste reduction and management platform. Join us in making a positive impact on the environment while saving money on your groceries.</p>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleLogin} className="card-body">

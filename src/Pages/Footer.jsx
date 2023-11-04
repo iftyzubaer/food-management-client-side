@@ -3,10 +3,10 @@ const Footer = () => {
         <footer className="footer footer-center p-10 bg-slate-700 text-white">
             <aside>
                 <img src="/favicon.ico" />
-                <p className="font-bold">Food Manager</p>
+                <p className="font-bold">Food Saver</p>
                 <p>Copyright © 2023 - All right reserved</p>
 
-                <p><span className="font-bold">Email:</span> foodmanager@food.com</p>
+                <p><span className="font-bold">Email:</span> foodsaver@food.com</p>
                 <p><span className="font-bold">Address:</span> Mirpur, Dhaka</p>
             </aside>
             <nav>

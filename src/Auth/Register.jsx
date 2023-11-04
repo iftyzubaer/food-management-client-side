@@ -43,7 +43,7 @@ const Register = () => {
             <div className="hero-content flex-col gap-28 lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Register now!</h1>
-                    <p className="py-6">Get started with Techy Store! To begin shopping for the latest tech products, please fill out the registration form below. Create a unique username, provide your email, and choose a secure password. If you&apos;ve shopped with us before, simply click the &apos;Sign In&apos; link to access your account. We value your privacy and security, and your information is protected. Thank you for choosing Techy Store for all your tech needs.</p>
+                    <p className="py-6">Join the FoodSaver community and take a step towards reducing food waste. Create your account to access our powerful tools for managing and saving food. Together, we can make a difference!</p>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleRegister} className="card-body">
