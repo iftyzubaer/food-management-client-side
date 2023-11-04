@@ -2,7 +2,7 @@ const Footer = () => {
     return (
         <footer className="footer footer-center p-10 bg-slate-700 text-white">
             <aside>
-                <img src="/public/favicon.ico" />
+                <img src="/favicon.ico" />
                 <p className="font-bold">Food Manager</p>
                 <p>Copyright © 2023 - All right reserved</p>
 
