@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import 'firebase/auth';
 import auth from "../Firebase/firebase.config";
+import { toast } from "react-toastify";
 
 const FoodDetailsPage = () => {
 
@@ -29,6 +30,39 @@ const FoodDetailsPage = () => {
     const currentDate = new Date();
     const formattedDate = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
 
+    const handleAddRequest = e => {
+        e.preventDefault()
+
+        const form = e.target
+        const name = form.name.value
+        const photo = form.photo.value
+        const id = form.id.value
+        const donarEmail = form.donarEmail.value
+        const donarName = form.donarName.value
+        const userEmail = form.userEmail.value
+        const requestDate = form.requestDate.value
+        const location = form.location.value
+        const expiryDate = form.expiryDate.value
+        const details = form.details.value
+        const donationMoney = form.donationMoney.value
+
+        const requestFood = { photo, name, id, donarEmail, donarName, userEmail, requestDate, location, expiryDate, details, donationMoney }
+
+        fetch('http://localhost:5000/request', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(requestFood)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                toast("Food Requested Successfully");
+                e.target.reset()
+            })
+    }
+
     return (
         <div className="mx-6 md:mx-32 lg:mx-40 my-16">
             <img className="m-auto" src={food.photo} alt="" />
@@ -49,87 +83,85 @@ const FoodDetailsPage = () => {
                 <dialog id="my_modal_4" className="modal text-left">
                     <div className="modal-box w-11/12 max-w-5xl">
                         <div>
-                            <div className="">
-                                <div className=" flex-col">
-                                    <div className="w-full shadow-2xl bg-base-100 p-6">
-                                        <form className="">
-                                            <div className="text-center">
-                                                <h1 className="text-5xl font-bold">Request for Food</h1>
+                            <div className=" flex-col">
+                                <div className="w-full shadow-2xl bg-base-100 p-6">
+                                    <form onSubmit={handleAddRequest}>
+                                        <div className="text-center">
+                                            <h1 className="text-5xl font-bold">Request for Food</h1>
+                                        </div>
+                                        <p className='mb-3'>Must fill up the <span className='text-red-600'>*</span> signed boxes</p>
+                                        <div className="grid grid-cols-2 gap-6">
+                                            <div className="form-control">
+                                                <label className="label">
+                                                    <span className="label-text">Name<span className='text-red-600'>*</span></span>
+                                                </label>
+                                                <input type="text" name="name" disabled defaultValue={food.name} placeholder="Food's Name" className="input input-bordered" required />
                                             </div>
-                                            <p className='mb-3'>Must fill up the <span className='text-red-600'>*</span> signed boxes</p>
-                                            <div className="grid grid-cols-2 gap-6">
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Name<span className='text-red-600'>*</span></span>
-                                                    </label>
-                                                    <input type="text" name="name" disabled defaultValue={food.name} placeholder="Food's Name" className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Image<span className='text-red-600'>*</span></span>
-                                                    </label>
-                                                    <input type="url" name="photo" disabled defaultValue={food.photo} placeholder="Food's Image URL" className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Id<span className='text-red-600'>*</span></span>
-                                                    </label>
-                                                    <input type="text" name="id" disabled defaultValue={food._id} placeholder="Food's Id" className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Donar&apos;s Email<span className='text-red-600'>*</span></span>
-                                                    </label>
-                                                    <input type="email" name="donarEmail" disabled defaultValue={food.donarEmail} placeholder="Donar's Email" className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Donar&apos;s Name<span className='text-red-600'>*</span></span>
-                                                    </label>
-                                                    <input type="text" name="donarName" disabled defaultValue={food.donarName} placeholder="Donar's Name" className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Requesting User&apos;s Email<span className='text-red-600'>*</span></span>
-                                                    </label>
-                                                    <input type="email" name="userEmail" disabled defaultValue={userEmail} placeholder="Donar's Email" className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Request Date<span className='text-red-600'>*</span></span>
-                                                    </label>
-                                                    <input type="date" name="requestDate" disabled value={formattedDate} placeholder="Food's Request Date" className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Location<span className='text-red-600'>*</span></span>
-                                                    </label>
-                                                    <input type="text" name="location" disabled defaultValue={food.location} placeholder="Donar's Location" className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Expired Date<span className='text-red-600'>*</span></span>
-                                                    </label>
-                                                    <input type="date" name="expiryDate" disabled defaultValue={food.expiryDate} placeholder="Food's Expiry Date" className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Additional Notes</span>
-                                                    </label>
-                                                    <textarea type="text" name="details" placeholder="food's Description" className="input input-bordered" />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Donation Money</span>
-                                                    </label>
-                                                    <input type="number" name="donationMoney" placeholder="Donation Money" className="input input-bordered" />
-                                                </div>
+                                            <div className="form-control">
+                                                <label className="label">
+                                                    <span className="label-text">Image<span className='text-red-600'>*</span></span>
+                                                </label>
+                                                <input type="url" name="photo" disabled defaultValue={food.photo} placeholder="Food's Image URL" className="input input-bordered" required />
                                             </div>
-                                            <div className="form-control mt-6">
-                                                <button className="btn btn-primary">Add Food</button>
+                                            <div className="form-control">
+                                                <label className="label">
+                                                    <span className="label-text">Id<span className='text-red-600'>*</span></span>
+                                                </label>
+                                                <input type="text" name="id" disabled defaultValue={food._id} placeholder="Food's Id" className="input input-bordered" required />
                                             </div>
-                                        </form>
-                                    </div>
+                                            <div className="form-control">
+                                                <label className="label">
+                                                    <span className="label-text">Donar&apos;s Email<span className='text-red-600'>*</span></span>
+                                                </label>
+                                                <input type="email" name="donarEmail" disabled defaultValue={food.donarEmail} placeholder="Donar's Email" className="input input-bordered" required />
+                                            </div>
+                                            <div className="form-control">
+                                                <label className="label">
+                                                    <span className="label-text">Donar&apos;s Name<span className='text-red-600'>*</span></span>
+                                                </label>
+                                                <input type="text" name="donarName" disabled defaultValue={food.donarName} placeholder="Donar's Name" className="input input-bordered" required />
+                                            </div>
+                                            <div className="form-control">
+                                                <label className="label">
+                                                    <span className="label-text">Requesting User&apos;s Email<span className='text-red-600'>*</span></span>
+                                                </label>
+                                                <input type="email" name="userEmail" disabled defaultValue={userEmail} placeholder="Donar's Email" className="input input-bordered" required />
+                                            </div>
+                                            <div className="form-control">
+                                                <label className="label">
+                                                    <span className="label-text">Request Date<span className='text-red-600'>*</span></span>
+                                                </label>
+                                                <input type="date" name="requestDate" disabled value={formattedDate} placeholder="Food's Request Date" className="input input-bordered" required />
+                                            </div>
+                                            <div className="form-control">
+                                                <label className="label">
+                                                    <span className="label-text">Location<span className='text-red-600'>*</span></span>
+                                                </label>
+                                                <input type="text" name="location" disabled defaultValue={food.location} placeholder="Donar's Location" className="input input-bordered" required />
+                                            </div>
+                                            <div className="form-control">
+                                                <label className="label">
+                                                    <span className="label-text">Expired Date<span className='text-red-600'>*</span></span>
+                                                </label>
+                                                <input type="date" name="expiryDate" disabled defaultValue={food.expiryDate} placeholder="Food's Expiry Date" className="input input-bordered" required />
+                                            </div>
+                                            <div className="form-control">
+                                                <label className="label">
+                                                    <span className="label-text">Additional Notes</span>
+                                                </label>
+                                                <textarea type="text" name="details" placeholder="food's Description" className="input input-bordered" />
+                                            </div>
+                                            <div className="form-control">
+                                                <label className="label">
+                                                    <span className="label-text">Donation Money</span>
+                                                </label>
+                                                <input type="number" name="donationMoney" placeholder="Donation Money" className="input input-bordered" />
+                                            </div>
+                                        </div>
+                                        <div className="form-control mt-6">
+                                            <button className="btn btn-primary">Add Request</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
