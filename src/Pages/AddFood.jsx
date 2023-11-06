@@ -13,8 +13,11 @@ const AddFood = () => {
         const location = form.location.value
         const expiryDate = form.expiryDate.value
         const details = form.details.value
+        const donarName = form.donarName.value
+        const donarPhoto = form.donarPhoto.value
+        const donarEmail = form.donarEmail.value
 
-        const newFood = { photo, name, quantity, location, expiryDate, details }
+        const newFood = { photo, name, quantity, location, expiryDate, details, donarName, donarPhoto, donarEmail }
 
         fetch('http://localhost:5000/food', {
             method: 'POST',
@@ -33,7 +36,7 @@ const AddFood = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen my-4">
+            <div className="hero min-h-screen">
                 <div className="hero-content flex-col">
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleAddFood} className="card-body">
@@ -77,6 +80,27 @@ const AddFood = () => {
                                         <span className="label-text">Additional Notes</span>
                                     </label>
                                     <textarea type="text" name="details" placeholder="food's Description" className="input input-bordered" />
+                                </div>
+                            </div>
+                            <p className='mb-3 text-center text-lg'>Donar&apos;s Details</p>
+                            <div className="grid grid-cols-2 gap-6">
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Name<span className='text-red-600'>*</span></span>
+                                    </label>
+                                    <input type="text" name="donarName" placeholder="Donar's Name" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Image<span className='text-red-600'>*</span></span>
+                                    </label>
+                                    <input type="url" name="donarPhoto" placeholder="Donar's Image URL" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email<span className='text-red-600'>*</span></span>
+                                    </label>
+                                    <input type="email" name="donarEmail" placeholder="Donar's Email" className="input input-bordered" required />
                                 </div>
                             </div>
                             <div className="form-control mt-6">

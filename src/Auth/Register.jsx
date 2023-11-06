@@ -49,6 +49,12 @@ const Register = () => {
                     <form onSubmit={handleRegister} className="card-body">
                         <div className="form-control">
                             <label className="label">
+                                <span className="label-text">Image</span>
+                            </label>
+                            <input type="text" name="photoURL" placeholder="image" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
                             <input type="text" name="displayName" placeholder="name" className="input input-bordered" required />
