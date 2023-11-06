@@ -12,7 +12,6 @@ const FeaturedFood = ({ foods }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
                     sortedFoods.map(sortedFoods => <FeaturedFoodCard key={sortedFoods._id} sortedFoods={sortedFoods}></FeaturedFoodCard>)
-                    // brand.map(brand => <BrandCard key={brand.name} brand={brand}></BrandCard>)
                 }
             </div>
             <Link to={'/available'} className="btn btn-primary my-6">Show All</Link>
