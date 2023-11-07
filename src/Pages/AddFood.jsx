@@ -1,7 +1,21 @@
+import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import auth from '../Firebase/firebase.config';
 
 const AddFood = () => {
+
+    const [userEmail, setUserEmail] = useState(null);
+
+    useEffect(() => {
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                setUserEmail(user.email);
+            } else {
+                setUserEmail(null);
+            }
+        });
+    }, []);
 
     const handleAddFood = e => {
         e.preventDefault()
@@ -15,7 +29,7 @@ const AddFood = () => {
         const details = form.details.value
         const donarName = form.donarName.value
         const donarPhoto = form.donarPhoto.value
-        const donarEmail = form.donarEmail.value
+        const donarEmail = userEmail
 
         const newFood = { photo, name, quantity, location, expiryDate, details, donarName, donarPhoto, donarEmail }
 
@@ -100,7 +114,7 @@ const AddFood = () => {
                                     <label className="label">
                                         <span className="label-text">Email<span className='text-red-600'>*</span></span>
                                     </label>
-                                    <input type="email" name="donarEmail" placeholder="Donar's Email" className="input input-bordered" required />
+                                    <input type="email" name="donarEmail" disabled defaultValue={userEmail} placeholder="Donar's Email" className="input input-bordered" required />
                                 </div>
                             </div>
                             <div className="form-control mt-6">
