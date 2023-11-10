@@ -48,7 +48,7 @@ const FoodDetailsPage = () => {
 
         const requestFood = { photo, name, id, donarEmail, donarName, userEmail, requestDate, location, expiryDate, details, donationMoney }
 
-        fetch('http://localhost:5000/request', {
+        fetch('https://food-management-server.vercel.app/request', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

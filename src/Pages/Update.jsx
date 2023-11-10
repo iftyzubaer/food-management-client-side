@@ -23,7 +23,7 @@ const Update = () => {
 
         const updateFood = { photo, name, quantity, location, expiryDate, details, donarName, donarPhoto, donarEmail }
 
-        fetch(`http://localhost:5000/food/${foods._id}`, {
+        fetch(`https://food-management-server.vercel.app/food/${foods._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -1,8 +1,11 @@
-# React + Vite
+# Food Saver
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Food Saver Live web-site](https://food-manager-b0e77.web.app/)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Add at least 5 Project features:
+- All the pages except home are in private route
+- After login two more section will unlock in the navbar
+- Email and password authentication is available
+- Google Authentication is available too
+- Regex password validation enabled
+- MongoDB is used in display products in brand and cart

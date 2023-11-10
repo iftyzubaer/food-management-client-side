@@ -22,7 +22,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/food')
+                loader: () => fetch('https://food-management-server.vercel.app/food')
             },
             {
                 path: "/login",
@@ -39,32 +39,32 @@ const router = createBrowserRouter([
             {
                 path: "/available",
                 element: <AvailableFoods></AvailableFoods>,
-                loader: () => fetch('http://localhost:5000/food')
+                loader: () => fetch('https://food-management-server.vercel.app/food')
             },
             {
                 path: "/food/:_id",
                 element: <FoodDetailsPage></FoodDetailsPage>,
-                loader: () => fetch('http://localhost:5000/food')
+                loader: () => fetch('https://food-management-server.vercel.app/food')
             },
             {
                 path: "/manage",
                 element: <PrivateRoute><ManageAddedFoods></ManageAddedFoods></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/food')
+                loader: () => fetch('https://food-management-server.vercel.app/food')
             },
             {
                 path: "/request",
                 element: <PrivateRoute><RequestFood></RequestFood></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/request')
+                loader: () => fetch('https://food-management-server.vercel.app/request')
             },
             {
                 path: "/update/:id",
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://food-management-server.vercel.app/food/${params.id}`)
             },
             {
                 path: "/manageFood/:id",
                 element: <PrivateRoute><ManageFood></ManageFood></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://food-management-server.vercel.app/food/${params.id}`)
             }
         ]
     }

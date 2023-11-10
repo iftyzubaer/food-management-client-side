@@ -22,7 +22,7 @@ const RequestFood = () => {
     const requestedFoods = foods.filter((food) => food.userEmail == userEmail)
 
     const handleCancelRequest = id => {
-        fetch(`http://localhost:5000/request/${id}`, {
+        fetch(`https://food-management-server.vercel.app/request/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

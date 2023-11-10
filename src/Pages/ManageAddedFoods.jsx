@@ -35,7 +35,7 @@ const ManageAddedFoods = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/food/${id}`, {
+                fetch(`https://food-management-server.vercel.app/food/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
