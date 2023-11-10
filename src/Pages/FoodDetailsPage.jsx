@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import 'firebase/auth';
 import auth from "../Firebase/firebase.config";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const FoodDetailsPage = () => {
 
@@ -65,6 +66,9 @@ const FoodDetailsPage = () => {
 
     return (
         <div className="mx-6 md:mx-32 lg:mx-40 my-16">
+            <Helmet>
+                <title>Food Saver | Food Details</title>
+            </Helmet>
             <img className="m-auto" src={food.photo} alt="" />
             <h3 className="text-xl font-bold mb-4">Donar:</h3>
             <div className="flex items-center gap-1">

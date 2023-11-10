@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import auth from "../Firebase/firebase.config";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
 
 const RequestFood = () => {
 
@@ -35,6 +36,9 @@ const RequestFood = () => {
 
     return (
         <div className='text-center'>
+            <Helmet>
+                <title>Food Saver | Requested Food</title>
+            </Helmet>
             <h2 className="text-5xl font-bold text-center my-4">My Requested Foods</h2>
             <div>
                 <div className="min-w-full">

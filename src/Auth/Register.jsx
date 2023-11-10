@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
 
@@ -40,6 +41,9 @@ const Register = () => {
 
     return (
         <div className="hero px-4 py-20 md:px-24">
+            <Helmet>
+                <title>Food Saver | Register</title>
+            </Helmet>
             <div className="hero-content flex-col gap-28 lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Register now!</h1>

@@ -4,6 +4,7 @@ import auth from "../Firebase/firebase.config";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const ManageAddedFoods = () => {
 
@@ -59,6 +60,9 @@ const ManageAddedFoods = () => {
 
     return (
         <div className='text-center'>
+            <Helmet>
+                <title>Food Saver | Manage Your Food</title>
+            </Helmet>
             <h2 className="text-5xl font-bold text-center my-4">My Added Foods</h2>
             <div>
                 <div className="min-w-full">

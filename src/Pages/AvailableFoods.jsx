@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import AvailableFoodsCard from "./AvailableFoodsCard";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const AvailableFoods = () => {
 
@@ -28,6 +29,9 @@ const AvailableFoods = () => {
 
     return (
         <div className="px-2 md:px-20 lg:px-40 my-16 text-center">
+            <Helmet>
+                <title>Food Saver | Available Food</title>
+            </Helmet>
             <h2 className="text-5xl font-bold text-center mb-10">Available Foods</h2>
             <div className="mb-10">
                 <div className="join">

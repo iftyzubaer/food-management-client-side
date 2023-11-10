@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -40,6 +41,9 @@ const Update = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Food Saver | Update Food</title>
+            </Helmet>
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col">
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

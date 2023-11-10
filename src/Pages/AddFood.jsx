@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../Firebase/firebase.config';
+import { Helmet } from 'react-helmet-async';
 
 const AddFood = () => {
 
@@ -50,6 +51,9 @@ const AddFood = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Food Saver | Add Food</title>
+            </Helmet>
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col">
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
